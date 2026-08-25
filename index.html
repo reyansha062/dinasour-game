@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <meta name="google-site-verification" content="XTLG9lxikMYpd6OU7Rgeck51SUnNTI2NEt4I1RmgEq8" />
   <meta charset="UTF-8">
-  <title>Chrome Dino Runner - Fullscreen</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chrome Dino Runner</title>
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
@@ -57,7 +59,6 @@
 <body>
 
 <div id="game-container">
-  <!-- Native canvas resolution increased to 1200x300 for crisp wide display -->
   <canvas id="gameCanvas" width="1200" height="300"></canvas>
 </div>
 <div class="instructions">
@@ -197,7 +198,7 @@ const dino = {
       const dy = GROUND_Y - 52;
       ctx.fillRect(this.x, dy + 16, 96, 28);
       ctx.fillRect(this.x + 80, dy + 4, 30, 24);
-      ctx.fillRect(this.x + 96, dy + 8, 4, 4); // Eye
+      ctx.fillRect(this.x + 96, dy + 8, 4, 4);
       if (this.legFrame === 0) {
         ctx.fillRect(this.x + 24, dy + 44, 12, 8);
         ctx.fillRect(this.x + 56, dy + 44, 12, 4);
@@ -208,23 +209,18 @@ const dino = {
       return;
     }
 
-    // Head & Snout
     ctx.fillRect(this.x + 44, this.y, 36, 32);
     ctx.fillRect(this.x + 40, this.y + 4, 8, 20);
-    // Eye
     ctx.fillStyle = '#f7f7f7';
     ctx.fillRect(this.x + 52, this.y + 6, 6, 6);
     ctx.fillStyle = '#535353';
-    // Body & Tail
     ctx.fillRect(this.x + 20, this.y + 28, 40, 36);
     ctx.fillRect(this.x + 12, this.y + 32, 12, 24);
     ctx.fillRect(this.x + 4, this.y + 36, 8, 16);
     ctx.fillRect(this.x, this.y + 40, 4, 8);
-    // Arms
     ctx.fillRect(this.x + 60, this.y + 36, 10, 4);
     ctx.fillRect(this.x + 66, this.y + 40, 4, 6);
 
-    // Legs
     if (this.isJumping) {
       ctx.fillRect(this.x + 24, this.y + 64, 8, 16);
       ctx.fillRect(this.x + 44, this.y + 64, 8, 16);
@@ -400,7 +396,7 @@ function checkCollision(b1, b2) {
   );
 }
 
-// --- Main Loop ---
+// --- Main Game Loop ---
 function loop() {
   frameCount++;
   ctx.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
